@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 style="margin-left: 5px;">All Flats (<%= @flats.count %>)</h1>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-4">
+        <div class="card shadow">
+          <div class="card-body fixed-height-card" style="background-color: #e9ecef;">
+            <h2 class="card-title"><strong><%= flat.name %></strong></h2>
+            <p class="card-text"><u><%= flat.address %></u></p>
+            <p class="card-text" style="color: #888;"><%= truncate(flat.description, length: 50) %></p>
+            <i class="fas fa-euro-sign" style="margin-right: 20px;"><%= flat.price_per_night %></i>
+            <i class="fas fa-people-roof" style="margin-left: 20px;"><%= flat.number_of_guests %></i>
+          </div>
+          <div class="card-footer d-flex justify-content-between shadow down shadow right">
+            <%= link_to '<i class="fas fa-info-circle"></i> More info'.html_safe, flat_path(flat), class: 'btn btn-info shadow' %>
+            <%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_flat_path(flat), class: 'btn btn-warning shadow' %>
+            <%= link_to '<i class="fas fa-trash-alt"></i> Delete'.html_safe, flat, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger shadow' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

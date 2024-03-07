@@ -1,0 +1,4 @@
+.fixed-height-card {
+  height: 200px; /* Ustaw na wartość, która Ci odpowiada */
+  overflow: auto; /* Dodaj przewijanie, jeśli tekst jest zbyt długi */
+}
